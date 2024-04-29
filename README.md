@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Availabowl Admin V2
 
-## Getting Started
+Next.js app that we use for managing schools in a nice UI. Not included in the public repository is our Prisma ORM and API code.
 
-First, run the development server:
+## Requirements
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node v20.x.x (at time of writing)
+- Next.js 14.1 (at time of writing)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone this repository: `git clone git@github.com:git@github.com:availabowl/admin-app.git`
+2. Change directories into the project root: `cd admin-app`
+3. Run `cp sample.env .env` and then modify your new `.env` file with the appropriate credentials. This includes AWS, Jira, and PostgreSQL credentials.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Development
 
-## Learn More
+1. In the root of the project, run `npm run dev`.
+2. This will perform the initial build and then launch your browser to your local site (the first time you do this, it may take a few minutes).
+3. Changing files in this state will also hot reload the files.
 
-To learn more about Next.js, take a look at the following resources:
+## Build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. In the root of the project, run `npm run build`.
+2. The site will be built into the `public` folder of the project root.
+3. To start the production build, run `npm run start`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This web app is built in Next.js. As of now, we do not have the app hosted on the web for security purposes. However, the source code can serve as a boilerplate for those looking to build their own administrator apps.
