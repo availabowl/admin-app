@@ -138,6 +138,7 @@ export default function Page() {
                                 <tr className="text-left">
                                     <th scope="col" className="p-6 text-gray-400">Name</th>
                                     <th scope="col" className="p-6 text-gray-400">Rating</th>
+                                    <th scope="col" className="p-6 text-gray-400">Size</th>
                                     <th scope="col" className="p-6 text-gray-400">Location</th>
                                     <th scope="col" className="p-6"></th>
                                 </tr>

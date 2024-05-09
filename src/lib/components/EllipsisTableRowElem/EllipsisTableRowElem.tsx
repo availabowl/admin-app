@@ -1,6 +1,5 @@
 import React, { RefObject, useState, useRef, useEffect } from "react";
 import { FaRegEdit } from "react-icons/fa";
-import { usePathname } from "next/navigation";
 import { IoAddCircleOutline, IoEllipsisHorizontalSharp } from "react-icons/io5";
 import { MdDeleteOutline } from "react-icons/md";
 import Link from "next/link";
@@ -14,10 +13,11 @@ type EllipsisTableRowElemProps = {
     /** Delete function that is fired for deleting the table record element. */
     onDelete: () => any,
     /** Defines if the add button should be shown. Should not be shown when a vendor is a tab element. */
-    addButton?: boolean
+    addButton?: boolean,
+    addButtonUrl?: string;
 }
 
-export const EllipsisTableRowElem = ({showLoading, onDelete, addButton} : EllipsisTableRowElemProps) => {
+export const EllipsisTableRowElem = ({showLoading, onDelete, addButton, addButtonUrl} : EllipsisTableRowElemProps) => {
     const [showModify, setShowModify] = useState(false);
     const [showDelete, setShowDelete] = useState(false);
 
@@ -63,27 +63,26 @@ export const EllipsisTableRowElem = ({showLoading, onDelete, addButton} : Ellips
             </div>
             <DeleteTableRowElement showDelete={showDelete} showLoading={showLoading} onDelete={onDelete}
             onHide={handleOnHide} deleteRef={deleteRef} />
-            <ModifyTableRowElement showModify={showModify} setShowDelete={handleOnDelete} showModifyRef={ref} addButton={addButton} />
+            <ModifyTableRowElement showModify={showModify} setShowDelete={handleOnDelete} showModifyRef={ref} addButton={addButton}
+            addButtonUrl={addButtonUrl} />
         </td>
     )
 };
 
-const ModifyTableRowElement = ({showModify, showModifyRef, setShowDelete, addButton} : ModifyTableRowElementProps) => {
-    const pathname = usePathname();
-
+const ModifyTableRowElement = ({showModify, showModifyRef, setShowDelete, addButton, addButtonUrl} : ModifyTableRowElementProps) => {
     return (
         showModify &&
         <div className="border border-slate-700 rounded absolute top-[65px] right-[20px] bg-slate-800 z-10 w-[175px] shadow" ref={showModifyRef}>
             <ul className="divide-y divide-slate-700">
                 <li>
-                    <Link href={`${pathname}/edit`} className="py-3 px-4 font-bold flex items-center justify-between gap-3">
+                    <Link href={`${addButtonUrl}/edit`} className="py-3 px-4 font-bold flex items-center justify-between gap-3">
                         <span>Edit</span><FaRegEdit size={18} />
                     </Link>
                 </li>
                 {
                     addButton &&
                     <li>
-                        <Link href={`${pathname}/add`} className="py-3 px-4 font-bold flex items-center justify-between gap-3">
+                        <Link href={`${addButtonUrl}/add`} className="py-3 px-4 font-bold flex items-center justify-between gap-3">
                             <span>Add</span><IoAddCircleOutline size={18} />
                         </Link>
                     </li>

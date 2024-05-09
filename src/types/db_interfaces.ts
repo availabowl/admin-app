@@ -9,6 +9,7 @@ export type School = {
     numreviews: number;
     uriencodedname: string;
     deleted?: boolean;
+    num_dhs: number;
 };
 
 export type Dh = {
@@ -20,6 +21,8 @@ export type Dh = {
     uriencodedname: string;
     schoolid: string;
     isdraft: boolean;
+    num_vendors: number;
+    is_archived: boolean;
 };
 
 export type Vendor = {

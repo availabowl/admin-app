@@ -133,8 +133,6 @@ export default function Page() {
                     </form>
                 </div>
             </div>
-            <div className="bg-slate-900 rounded-md border border-gray-700 invisible lg:visible divide-y divide-slate-700">
-            </div>
         </div>
         </>
     )

@@ -4,6 +4,7 @@ import { DraftLabel } from "../DraftLabel";
 import { EllipsisParentElem } from "../EllipsisParentElem";
 import { FormSubmitResponse } from "@/types/db_interfaces";
 import { GoBack } from "./GoBack";
+import { ArchivedLabel } from "../ArchivedLabel";
 
 interface HeaderProps {
     response: FormSubmitResponse | null,
@@ -12,10 +13,11 @@ interface HeaderProps {
     headerTitle: string,
     headerPhotoPath?: string,
     isDraft?: boolean,
-    goBackUrl: string
+    goBackUrl: string,
+    isArchived?: boolean
 };
 
-const Header = ({response, showLoading, onDelete, headerTitle, headerPhotoPath, isDraft, goBackUrl} : HeaderProps) => {
+const Header = ({response, showLoading, onDelete, headerTitle, headerPhotoPath, isDraft, goBackUrl, isArchived} : HeaderProps) => {
     
     return (
         <div className="flex items-center justify-between">
@@ -34,6 +36,9 @@ const Header = ({response, showLoading, onDelete, headerTitle, headerPhotoPath, 
                 </h1>
                 {
                     isDraft && <DraftLabel />
+                }
+                {
+                    isArchived && <ArchivedLabel />
                 }
             </div>
             <EllipsisParentElem response={response} showLoading={showLoading} 

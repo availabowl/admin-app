@@ -41,6 +41,9 @@ const SchoolElement = ({school, deleteSchool} : SchoolElementProps) => {
             <span className="flex items-center gap-1">{Math.round(Number(school.averagerating) * 100) / 100}<FaStar />({school.numreviews})</span>
         </td>
         <td className="p-6">
+            <span className="flex items-center gap-1">{school.num_dhs}</span>
+        </td>
+        <td className="p-6">
             <p>{school.schoolstate}</p>
         </td>
         {
@@ -48,6 +51,7 @@ const SchoolElement = ({school, deleteSchool} : SchoolElementProps) => {
             <EllipsisTableRowElem
             showLoading={showLoading}
             onDelete={handleDelete}
+            addButtonUrl={`/dashboard/schools/${school.id}`}
             addButton />
         }
         </>

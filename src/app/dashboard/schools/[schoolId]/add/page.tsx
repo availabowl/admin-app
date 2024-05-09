@@ -62,7 +62,7 @@ export default function Page({params} : { params: { schoolId: string, dhId: stri
         <>
         <Toast showToast={showToast} setShowToast={setShowToast} response={response} successMessage={"Dining hall has successfully been created."} />
         <div className="grid grid-cols-3 gap-8 mb-4 min-h-screen">
-            <div className="bg-slate-900 rounded-md border border-gray-700 col-span-3 lg:col-span-2 divide-y divide-slate-700">
+            <div className="bg-slate-900 rounded-md border border-gray-700 col-span-3 xl:col-span-2 divide-y divide-slate-700">
                 <div className="w-full px-6 py-4 my-3">
                     <div className="flex items-center gap-6">
                         <Link href={`/dashboard/schools/${params.schoolId}`} className="rounded-full flex items-center justify-center p-4 bg-slate-700">
@@ -101,9 +101,6 @@ export default function Page({params} : { params: { schoolId: string, dhId: stri
                         </button>
                     </form>
                 </div>
-            </div>
-            <div className="bg-slate-900 rounded-md border border-gray-700 invisible lg:visible divide-y divide-slate-700">
-
             </div>
         </div>
     </>

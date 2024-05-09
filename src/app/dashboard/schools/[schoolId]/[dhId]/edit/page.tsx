@@ -9,6 +9,8 @@ import { IoLinkSharp } from 'react-icons/io5';
 
 import { Dh, FormSubmitResponse } from '@/types/db_interfaces';
 import { Toast } from '@/lib/components/Toast';
+import { DraftLabel } from '@/lib/components/DraftLabel';
+import { ArchivedLabel } from '@/lib/components/ArchivedLabel';
 
 export default function Page({params} : { params: { schoolId: string, dhId: string}}) {
     const [dh, setDh] = useState<Dh | null>(null);
@@ -97,6 +99,12 @@ export default function Page({params} : { params: { schoolId: string, dhId: stri
                                 <FaArrowLeft size={16} />
                             </Link>
                             <h1 className="text-2xl font-bold">Edit {dh?.dhname}</h1>
+                            {
+                                dh?.isdraft && <DraftLabel />
+                            }
+                            {
+                                dh?.is_archived && <ArchivedLabel/>
+                            }
                         </div>
                     </div>
                     :
@@ -149,6 +157,21 @@ export default function Page({params} : { params: { schoolId: string, dhId: stri
                                         <input type="checkbox" value={String(newDh?.isdraft)} className="sr-only peer"
                                         defaultChecked={newDh?.isdraft} name="isDraft"
                                         onChange={e => setNewDh({...newDh!, isdraft: e.target.checked})}
+                                        />
+                                        <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                                    </label>
+                                    : <div className="h-6 w-11 animate-pulse bg-slate-700 rounded-full"></div>
+                                }
+                            </div>
+                            <div className="w-full flex items-center justify-between my-4">
+                                <p className="text-gray-400">Archive mode</p>
+                                {
+                                    !loading
+                                    ?
+                                    <label className="inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" value={String(newDh?.is_archived)} className="sr-only peer"
+                                        defaultChecked={newDh?.is_archived} name="is_archived"
+                                        onChange={e => setNewDh({...newDh!, is_archived: e.target.checked})}
                                         />
                                         <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                                     </label>

@@ -106,6 +106,7 @@ export default function Page({params} : { params: { schoolId: string }}) {
                         <tr className="text-left">
                             <th scope="col" className="p-6 text-gray-400">Name</th>
                             <th scope="col" className="p-6 text-gray-400">Rating</th>
+                            <th scope="col" className="p-6 text-gray-400">Size</th>
                             <th scope="col" className="p-6 text-gray-400"></th>
                         </tr>
                     </thead>
@@ -114,7 +115,7 @@ export default function Page({params} : { params: { schoolId: string }}) {
                         (
                             dhs.map((dh: Dh, i) => (
                                 <tr key={dh.id} className="text-left">
-                                    <DhElement dh={dh} onDelete={() => handleDelete(dh.id, i)} />
+                                    <DhElement dh={dh} onDelete={() => handleDelete(dh.id, i)} pathname={`/dashboard/schools/${params.schoolId}`} />
                                 </tr>
                             ))
                         )

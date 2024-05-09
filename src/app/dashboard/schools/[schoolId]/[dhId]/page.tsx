@@ -93,7 +93,7 @@ export default function Page({params} : { params: { schoolId: string, dhId: stri
                     {
                         !loadingDh && !loadingVendors ?
                         <Header response={deletedResponse} showLoading={showLoadingDelete} onDelete={deleteDh} headerTitle={dh!.dhname}
-                        isDraft={dh!.isdraft} goBackUrl={`/dashboard/schools/${params.schoolId}`} />
+                        isDraft={dh!.isdraft} goBackUrl={`/dashboard/schools/${params.schoolId}`} isArchived={dh!.is_archived} />
                         :
                         <div className="w-full h-16 animate-pulse bg-slate-700 rounded">
                         </div>
