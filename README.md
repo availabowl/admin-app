@@ -1,6 +1,12 @@
-# Availabowl Admin V2
+# Availabowl Admin V2.1 - Boilerplate
 
-Next.js app that we use for managing schools in a nice UI. Not included in the public repository is our Prisma ORM and API code.
+Next.js app that we use for managing schools in a nice UI. Not included in the public repository is our Prisma ORM.
+Since update 2.1.0 of our administrator app, part of our API schema is public through this.
+
+## API
+Our PostgreSQL data is managed within this administrator app. For development purposes, we advise you to be aware
+that we handle violations and data integrity of our schema within our database. This is so we can reduce
+codebase logic.
 
 ## Requirements
 

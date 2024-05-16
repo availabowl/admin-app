@@ -75,7 +75,7 @@ const ModifyTableRowElement = ({showModify, showModifyRef, setShowDelete, addBut
         <div className="border border-slate-700 rounded absolute top-[65px] right-[20px] bg-slate-800 z-10 w-[175px] shadow" ref={showModifyRef}>
             <ul className="divide-y divide-slate-700">
                 <li>
-                    <Link href={`${addButtonUrl}/edit`} className="py-3 px-4 font-bold flex items-center justify-between gap-3">
+                    <Link href={`${!addButton ? addButtonUrl : `${addButtonUrl}/edit`}`} className="py-3 px-4 font-bold flex items-center justify-between gap-3">
                         <span>Edit</span><FaRegEdit size={18} />
                     </Link>
                 </li>

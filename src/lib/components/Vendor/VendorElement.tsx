@@ -50,6 +50,7 @@ const VendorElement = ({vendor, onDelete} : VendorElementProps) => {
         <EllipsisTableRowElem
         showLoading={showLoading}
         onDelete={handleOnDelete}
+        addButtonUrl={`/dashboard/schools/${vendor.schoolid}/${vendor.dhid}/${vendor.id}`}
         />
         </>
     )

@@ -16,7 +16,6 @@
 # production
 /build
 /prisma
-/src/app/api
 
 # misc
 .DS_Store
