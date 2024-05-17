@@ -3,9 +3,9 @@ import { prisma } from '@/lib/Prisma';
 
 export async function GET(request: NextRequest) {
     const start = request.nextUrl.searchParams.get("start") || 0;
-    const result = await prisma.$queryRawUnsafe(`
+    const result = await prisma.$queryRaw`
     WITH constants (start_index, limit_value, total, backend_uri) as (
-        values ($1, 5, (SELECT COUNT(*) FROM schools), '${process.env.NEXT_PUBLIC_BACKEND}')
+        values (${start} :: INTEGER, 5, (SELECT COUNT(*) FROM schools), ${process.env.NEXT_PUBLIC_BACKEND})
     )
     SELECT
         total :: INTEGER as count,
@@ -40,6 +40,6 @@ export async function GET(request: NextRequest) {
             LIMIT limit_value
         ) AS t) AS schools
         FROM constants;
-    `, Number(start));
+    `;
     return NextResponse.json((result as any)[0]);
 };

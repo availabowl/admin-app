@@ -40,7 +40,7 @@ export type Vendor = {
     averagerating: string;
     numreviews: number;
     isdraft: boolean;
-}
+};
 
 export type FormSubmitResponse = {
     success: boolean;
@@ -49,4 +49,13 @@ export type FormSubmitResponse = {
     dhId?: string;
     vendorId?: string;
     deletedAsset?: boolean;
-}
+};
+
+export type AuthUser = {
+    email: string;
+    imageurl: string;
+    uses_bcrypt?: boolean;
+    id: string;
+    username: string;
+    bcrypt_password: string;
+};

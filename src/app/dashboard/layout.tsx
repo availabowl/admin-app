@@ -52,7 +52,7 @@ export default function AdminLayout({
                                     {
                                         status === 'authenticated'
                                         ?
-                                        <Image src={process.env.NEXT_PUBLIC_S3_URL + session?.user.image} 
+                                        <Image src={session?.user.image} 
                                         alt="Logged in profile" className="rounded-full cursor-pointer" width={45} height={45} onClick={() => setMenuOpen(!menuOpen)} />
                                         :
                                         <div className="h-[45px] w-[45px] bg-slate-700 rounded-full animate-pulse"></div>
