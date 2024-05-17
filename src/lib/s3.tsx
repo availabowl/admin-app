@@ -2,6 +2,7 @@ import sharp from "sharp";
 import { S3, PutObjectCommand, DeleteObjectCommand } from '@aws-sdk/client-s3';
 
 const s3Client = new S3({
+    region: process.env.NEXT_PUBLIC_BUCKETEER_AWS_REGION!,
     credentials: {
         secretAccessKey: process.env.NEXT_PUBLIC_BUCKETEER_AWS_SECRET_ACCESS_KEY!,
         accessKeyId: process.env.NEXT_PUBLIC_BUCKETEER_AWS_ACCESS_KEY_ID!

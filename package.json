@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "docker-build": "docker build --build-arg DATABASE_URL=$DATABASE_URL -t availabowl-admin -f Dockerfile .",
+    "docker-run": "docker run --env-file .env -it -p 3000:3000 availabowl-admin"
   },
   "dependencies": {
     "@auth/pg-adapter": "^0.7.1",
