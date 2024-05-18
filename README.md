@@ -18,6 +18,7 @@ codebase logic.
 1. Clone this repository: `git clone git@github.com:git@github.com:availabowl/admin-app.git`
 2. Change directories into the project root: `cd admin-app`
 3. Run `cp sample.env .env` and then modify your new `.env` file with the appropriate credentials. This includes AWS, Jira, and PostgreSQL credentials.
+4. Run `npm i` to install all necessary dependencies for your package.
 
 ## Development
 
